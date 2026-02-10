@@ -9,6 +9,11 @@ public class Main {
 
         int choice;
 
+        String title;
+        String author;
+        int year;
+        double fileSize;
+
         do {
             System.out.println("\n===== Library Menu =====");
             System.out.println("1. Add book");
@@ -26,11 +31,27 @@ public class Main {
             switch (choice) {
 
                 case 1:
-                    // TODO: Read input and add Book
+                    System.out.print("Enter book title: ");
+                    title = scanner.nextLine();
+                    System.out.print("Enter book author: ");
+                    author = scanner.nextLine();
+                    System.out.print("Enter the year: ");
+                    year = scanner.nextInt();
+                    scanner.nextLine();
+                    library.addBook(new Book(title, author, year));
                     break;
 
                 case 2:
-                    // TODO: Read input and add EBook
+                    System.out.print("Enter e-book title: ");
+                    title = scanner.nextLine();
+                    System.out.print("Enter e-book author: ");
+                    author = scanner.nextLine();
+                    System.out.print("Enter the year: ");
+                    year = scanner.nextInt();
+                    System.out.print("Enter the file size (MB): ");
+                    fileSize = scanner.nextDouble();
+                    scanner.nextLine();
+                    library.addBook(new EBook(title, author, year, fileSize));
                     break;
 
                 case 3:
@@ -38,15 +59,22 @@ public class Main {
                     break;
 
                 case 4:
-                    // TODO: Search book
+                    System.out.print("Enter book title to search: ");
+                    title = scanner.nextLine();
+                    Book found = library.searchByTitle(title);
+                    System.out.println(found != null ? found : "Book not found.");
                     break;
 
                 case 5:
-                    // TODO: Borrow book
+                    System.out.print("Enter the title to borrow: ");
+                    title = scanner.nextLine();
+                    library.borrowBook(title);
                     break;
 
                 case 6:
-                    // TODO: Return book
+                    System.out.print("Enter the title to return: ");
+                    title = scanner.nextLine();
+                    library.returnBook(title);
                     break;
 
                 case 7:
