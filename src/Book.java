@@ -61,9 +61,13 @@ public class Book {
     // TODO: Override equals()
     @Override
     public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
         Book other = (Book) obj;
-        return title.equals(other.title)
-                && author.equals(other.author)
-                && year == other.year;
+
+        return year == other.year
+                && title.equals(other.title)
+                && author.equals(other.author);
     }
 }
